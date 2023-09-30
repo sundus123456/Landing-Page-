@@ -1,0 +1,214 @@
+<!DOCTYPE >
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Landing Page about COVID-19</title>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <header class="page__header">
+    <nav class="navbar__menu" >
+      <ul id="navbar__list" class="active_button" > </ul>
+    </nav>
+  </header>
+  <main>
+    <header class="main__hero">
+      <h1 style="color: rgb(232, 233, 250);" style="font-size: 100%;" style="font-family: Arial, Helvetica, sans-serif;">Landing Page</h1>
+    </header>
+    <section id="section1" data-nav="Section 1" class="active">
+      <div class="landing__container">
+        <h2>Section 1</h2>
+        <h3 style="color: rgb(108, 110, 110);" style="font-size: large;"> What is COVID-19?</h3>
+        <p id="p1" style="color: rgb(246, 242, 247);" style="font-size: 100;" style="font-weight: bold;">COVID-19 is the disease caused by a coronavirus called SARS-CoV-2.  WHO first learned of this new virus on 31 December 2019, following a report of a cluster of cases of so-called viral pneumonia in Wuhan, People’s Republic of China.
+            COVID‑19 transmits when infectious particles are breathed in or come into contact with the eyes, nose, or mouth. The risk is highest when people are in close proximity, but small airborne particles containing the virus can remain suspended in the air and travel over longer distances, particularly indoors. Transmission can also occur when people touch their eyes, nose or mouth after touching surfaces or objects that have been contaminated by the virus. People remain contagious for up to 20 days and can spread the virus even if they do not develop symptoms.
+        </p>
+      </div>
+    </section>
+    <section id="section2" data-nav="Section 2" class="active">
+      <div class="landing__container">
+        <h2>Section 2</h2>
+        <h3 style="color: rgb(108, 110, 110);" style="font-size: large;">What are the symptoms of COVID-19?</h3>
+        <p id="p2" style="color: rgb(246, 242, 247);" style="font-size: 100;" style="font-weight: bold;">The most common symptoms of COVID-19 are</p>
+                 <ul id="myList"> 
+                    <li>fever</li><br>
+               <li> chills</li><br> 
+              <li>sore throat.</li> </ul><br>
+             <p style="color: rgb(246, 242, 247);" style="font-size: 100;" style="font-weight: bold;"> If possible, call your health care provider, hotline or health facility first, so you can be directed to the right clinic.
+People who have pre-existing health problems are at higher risk when they have COVID-19; they should seek medical help early if worried about their condition. These include, but are not limited to: those taking immunosuppressive medication; those with chronic heart, lung, liver or rheumatological problems; those with HIV, diabetes, cancer or dementia.
+             </p>
+      </div>
+    </section>
+    <section id="section3" data-nav="Section 3" class="active">
+      <div class="landing__container">
+        <h2>Section 3</h2>
+        <h3 style="color: rgb(108, 110, 110);" style="font-size: large;">Who is most at risk of severe illness from COVID-19? </h3>
+        <p id="p3" style="color: rgb(246, 242, 247);" style="font-size: 100;" style="font-weight: bold;">People aged 60 years and over, and those with underlying medical problems like high blood pressure, diabetes, other chronic health problems (for example those affecting the heart, lungs, kidneys, and brain), low immune function / immunosuppression (including HIV), obesity, cancer, and unvaccinated people are most at risk of severe illness.
+However, anyone at any age can get sick with COVID-19 and become seriously ill or die.</p>
+      </div>
+    </section>
+    <section id="section4" data-nav="Section 4" class="active">
+      <div class="landing__container">
+        <h2>Section 4</h2>
+        <h3 style="color: rgb(108, 110, 110);" style="font-size: large;">How long does it take to develop symptoms?</h3>
+        <p id="p4" style="color: rgb(246, 242, 247);" style="font-size: 100;" style="font-weight: bold;">The time from exposure to COVID-19 to the moment when symptoms begin is, on average, 5–6 days and can range from 1–14 days. This is why people who have been exposed to the virus are advised to remain at home and stay away from others in order to prevent the spread of the virus.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="page__footer">
+  </footer>
+<script src="js/app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+event.preventDefault();
+ getData(madeURI);
+
+
+
+
+
+
+ 
+
+function getUserCredentials(e) {
+  const userZip =document.getElementById('zip').value;
+  const userFav =document.getElementById('feelings').value;
+getUserTemp(baseURL,userZip,apiKey)
+
+.then(Info) 
+  console.log(Info);
+  const day = Info.list[0].dt_txt.slice(0,10);
+  postData ('/add', {temp:data.list[0].main.temp,date:day, userRes: userFav})
+  updateUI();
+}
+
+...............................................................
+
+
+
+
+document.getElementById('generate').addEventListener('click', getUserCredentials) ;
+
+  
+  const madeURI = `$ {baseURI}${zip.value}${apiKey}`;
+ 
+function getUserCredentials(e){
+  const zipCode = document.getElementById('zip').value;
+  const feelingscode = document.getElementById('feelings').value;
+  console.log(newDate);
+  getTemperature(baseURL, zipCode, apiKey)
+  .then(function (data){
+      // Add data to POST request
+      postData('http://localhost:8080/addWeatherData', {temperature: data.main.temp, date: newDate, user_response: feelings } )
+      // Function which updates UI
+      .then(function() {
+          updateUI()
+      })
+  })
+}
+
+const getUserTemp = async (baseURL,userZip,apiKey) => {
+}
+
+
+const generateOn = () => {
+
+  const zipCode = document.getElementById("zip").value;
+  const feelingscode = document.getElementById("feelings").value;
+  const tempcode = document.getElementById("temp").value;
+
+  getWeatherData(zip).then((data) => {
+    
+    if (data) {
+      const {
+        main: { temp },
+        name: city,
+        weather: [{ description }],
+      } = data;
+
+      const info = {
+        newDate,
+        city,
+        temp: Math.round(temp), 
+        description,
+        feelings,
+      };
+      postData(server + "/add", info);
+
+      updatingUI();
+      document.getElementById('entry').style.opacity = 1;
+    }
+  });
+};
+
+
+  
+
+const getWeatherData = async (zip) => {
+  try {
+    const res = await fetch(baseURL + zip + apiKey);
+    const data = await res.json();
+
+    if (data.cod != 200) {
+      
+      error.innerHTML = data.message;
+      setTimeout(_=> error.innerHTML = '', 2000)
+      throw `${data.message}`;
+    }
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+const postData = async (url = "", info = {}) => {
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(info),
+  });
+
+  try {
+    const newData = await res.json();
+    console.log(`You just saved`, newData);
+    return newData;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+const updatingUI = async () => {
+  const res = await fetch(server + "/all");
+  try {
+    const savedData = await res.json();
+
+    document.getElementById("date").innerHTML = savedData.newDate;
+    document.getElementById("city").innerHTML = savedData.city;
+    document.getElementById("temp").innerHTML = savedData.temp + '&degC';
+    document.getElementById("content").innerHTML = savedData.feelings;
+  } catch (error) {
+    console.log(error);
+  }
+};
